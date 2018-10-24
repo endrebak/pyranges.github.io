@@ -1,0 +1,86 @@
+---
+title: "Subsetting PyRanges"
+---
+
+# Subsetting PyRanges
+
+There are many ways to subset a PyRanges object. Each returns a new PyRanges object and does not change the old one.
+
+```{python}
+
+import pyranges as pr
+
+gr = pr.load_dataset("chipseq")
+```
+
+
+## Chromosome only
+
+
+```{python tidy=FALSE}
+
+import pyranges as pr # ignore
+gr = pr.load_dataset("chipseq") # ignore
+gr["chrX"]
+```
+
+## Chromosome and Strand
+
+
+```{python tidy=FALSE}
+
+import pyranges as pr # ignore
+gr = pr.load_dataset("chipseq") # ignore
+gr["chrX", "-"]
+```
+
+## Chromosome and Slice
+
+
+```{python tidy=FALSE}
+
+import pyranges as pr # ignore
+gr = pr.load_dataset("chipseq") # ignore
+gr["chrX", 150000000:160000000]
+```
+
+## Chromosome, Strand and Slice
+
+
+```{python tidy=FALSE}
+
+import pyranges as pr # ignore
+gr = pr.load_dataset("chipseq") # ignore
+gr["chrX", "-", 150000000:160000000]
+```
+
+## Slice
+
+Only using slices returns all ranges from all chromosomes and strands within those coordinates.
+
+```{python tidy=FALSE}
+
+import pyranges as pr # ignore
+gr = pr.load_dataset("chipseq") # ignore
+gr[0:100000]
+```
+
+## Strand
+
+
+```{python tidy=FALSE}
+
+import pyranges as pr # ignore
+gr = pr.load_dataset("chipseq") # ignore
+gr["+"]
+```
+
+## Slice and Strand
+
+
+```{python tidy=FALSE}
+
+import pyranges as pr # ignore
+gr = pr.load_dataset("chipseq") # ignore
+gr["+", 0:100000]
+```
